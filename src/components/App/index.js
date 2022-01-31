@@ -1,20 +1,27 @@
 import "./App.css";
-import articles from "../../libs/articles";
+import {articles as dataset } from "../../libs/articles"
+import Title from "../Title/title";
+import Articles from "../Articles/articles";
+import Article from "../Article/article";
+import LoginButton from "../LoginButton/loginbutton";
+import LogoutButton from "../LogoutButton/logoutbutton";
+import PreLogin from "../Prelogin/prelogin";
+import pigeon from "/src/libs/pigeon.jpeg"
 
 function App() {
 
 
-  
+
   return (
     <main className="App">
-      <h1>WikiPigeon</h1>
-      {articles.map((article) => {
-        return (
-          <article key={article.id} className="post">
-            <h2>{article.title}</h2>
-            {article.paragraphs.map((paragraph) => (
-              <p key={paragraph.id}>{paragraph.text}</p>
-            ))}
+    <Title text="WikiPigeon"/>
+    <Articles articles={articles} />
+    <PreLogin />
+    <LoginButton />
+    <LogoutButton />
+      
+      
+      
             <button className="like-button">Like 👍</button>
             <section className="comment-section">
               {article.comments.map((comment) => {
@@ -26,11 +33,11 @@ function App() {
                 );
               })}
             </section>
-          </article>
+          
         );
-      })}
+      
     </main>
   );
-}
+
 
 export default App;
